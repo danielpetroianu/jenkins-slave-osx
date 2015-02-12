@@ -53,7 +53,7 @@ function create_user() {
 		sudo dseditgroup -o edit -a ${SERVICE_USER} -t user ${SERVICE_USER}
 	fi
 	SERVICE_CONF=${SERVICE_HOME}/Library/Preferences/org.jenkins-ci.slave.jnlp.conf
-	SERVICE_WRKSPC=${SERVICE_HOME}/Library/Developer/org.jenkins-ci.slave.jnlp
+	SERVICE_WRKSPC=${SERVICE_HOME}/Library/Developer/jenkins-ci_slave_wrkspc
 }
 
 function install_files() {
