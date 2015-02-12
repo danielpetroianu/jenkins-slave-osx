@@ -63,8 +63,8 @@ function install_files() {
 	fi
 	# download the LaunchDaemon
 	sudo curl --silent -L --url ${DOWNLOADS_PATH}/org.jenkins-ci.slave.jnlp.plist -o ${SERVICE_WRKSPC}/org.jenkins-ci.slave.jnlp.plist
-	sudo sed -i '' "s#\${JENKINS_HOME}#${SERVICE_WRKSPC}#g" ${SERVICE_WRKSPC}/org.jenkins-ci.slave.jnlp.plist
-	sudo sed -i '' "s#\${JENKINS_USER}#${SERVICE_USER}#g" ${SERVICE_WRKSPC}/org.jenkins-ci.slave.jnlp.plist
+	sudo sed -i '' "s#\${JENKINS_WRKSPC}#${SERVICE_WRKSPC}#g" ${SERVICE_WRKSPC}/org.jenkins-ci.slave.jnlp.plist
+	sudo sed -i '' "s#\${SERVICE_USER}#${SERVICE_USER}#g" ${SERVICE_WRKSPC}/org.jenkins-ci.slave.jnlp.plist
 	sudo rm -f /Library/LaunchDaemons/org.jenkins-ci.slave.jnlp.plist
 	sudo install -o root -g wheel -m 644 ${SERVICE_WRKSPC}/org.jenkins-ci.slave.jnlp.plist /Library/LaunchDaemons/org.jenkins-ci.slave.jnlp.plist
 	# download the jenkins JNLP slave script
@@ -290,6 +290,7 @@ function write_config {
 	[[ "$MASTER_HTTP_PORT" =~ ^: ]] && MASTER_HTTP_PORT=${MASTER_HTTP_PORT#":"}
 	local CONF_TMP=${INSTALL_TMP}/org.jenkins-ci.slave.jnlp.conf
 	:> ${CONF_TMP}
+	echo "JENKINS_WRKSPC=\"${SERVICE_WRKSPC}\"" >> ${CONF_TMP}
 	echo "JENKINS_SLAVE=\"${SLAVE_NODE}\"" >> ${CONF_TMP}
 	echo "JENKINS_MASTER=${MASTER}" >> ${CONF_TMP}
 	echo "HTTP_PORT=${MASTER_HTTP_PORT}" >> ${CONF_TMP}

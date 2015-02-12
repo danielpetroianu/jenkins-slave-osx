@@ -1,9 +1,10 @@
 #!/bin/bash
 
-JENKINS_HOME=$( dirname $0 )
-JENKINS_CONF=${JENKINS_HOME}/Library/Preferences/org.jenkins-ci.slave.jnlp.conf
-#JENKINS_WRKSPC=${HOME}/Library/Developer/org.jenkins-ci.slave.jnlp
-JENKINS_WRKSPC=${JENKINS_HOME}
+USER_HOME=$( dscl /Local/Default read /Users/$USER NFSHomeDirectory | awk '{ print $2 }')
+JENKINS_CONF=${USER_HOME}/Library/Preferences/org.jenkins-ci.slave.jnlp.conf
+
+# defaults
+JENKINS_WRKSPC=${USER_HOME}/Library/Developer/jenkins-ci_slave_wrkspc
 JENKINS_SLAVE=`hostname -s | tr '[:upper:]' '[:lower:]'`
 JENKINS_MASTER=http://jenkins
 HTTP_PORT=''
@@ -11,7 +12,7 @@ JENKINS_USER=''
 JENKINS_TOKEN=''
 JAVA_ARGS='-Djava.awt.headless=true'
 JAVA_ARGS_LOG=''
-JAVA_TRUSTSTORE=${JENKINS_HOME}/.keystore
+JAVA_TRUSTSTORE=${USER_HOME}/.keystore
 JAVA_TRUSTSTORE_PASS=''
 AGENT=''
 
