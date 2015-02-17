@@ -6,6 +6,7 @@
 	<string>org.jenkins-ci.slave.jnlp</string>
 	<key>ProgramArguments</key>
 	<array>
+		<string>/bin/bash</string>
 		<string>${JENKINS_WRKSPC}/slave.jnlp.sh</string>
 	</array>
 	<key>KeepAlive</key>
