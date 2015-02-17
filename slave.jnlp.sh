@@ -4,7 +4,7 @@ USER_HOME=$( dscl /Local/Default read /Users/$USER NFSHomeDirectory | awk '{ pri
 JENKINS_CONF=${USER_HOME}/Library/Preferences/org.jenkins-ci.slave.jnlp.conf
 
 # defaults
-JENKINS_WRKSPC=${USER_HOME}/_jenkinsci_slave
+JENKINS_WRKSPC=${USER_HOME}/JENKINS_SLAVE_HOME
 JENKINS_SLAVE=`hostname -s | tr '[:upper:]' '[:lower:]'`
 JENKINS_MASTER=http://jenkins
 HTTP_PORT=''
