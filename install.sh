@@ -211,8 +211,8 @@ sudo -i -u ${SERVICE_USER} cat ${SERVICE_HOME}/.ssh/id_rsa.pub
 }
 
 function configure_github {
-	read -p "Will this slave need to connect to GitHub? (yes/no) [no]" CONFIRM
-	CONFIRM=${CONFIRM:-no}
+	read -p "Will this slave need to connect to GitHub? (yes/no) [yes]" CONFIRM
+	CONFIRM=${CONFIRM:-yes}
 	if [[ "${CONFIRM}" =~ ^[Yy] ]] ; then
 		echo "Attempting to SSH to GitHub... You may be prompted to trust github.com."
 		sudo -i -u ${SERVICE_USER} ssh -T git@github.com
