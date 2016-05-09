@@ -5,7 +5,7 @@ Scripts to create and run a [Jenkins](http://jenkins-ci.org) slave via [Java Web
 
 
 ## Quick Start
-`bash <( curl -L https://raw.github.com/danielpetroianu/jenkins-slave-osx/master/install.sh )`
+`bash <( curl -L https://code.wowapp.me/IOS/jenkins-slave-osx/raw/master/install.sh )`
 
 
 
@@ -19,7 +19,7 @@ OS X slaves created with this script:
 
 
 ## Install
-`bash <( curl -L https://raw.github.com/danielpetroianu/jenkins-slave-osx/master/install.sh ) [options]`
+`bash <( curl -L https://code.wowapp.me/IOS/jenkins-slave-osx/raw/master/install.sh ) [options]`
 
 The install script has the following options:
 * `--java-args="ARGS"` to specify any optional java arguments. *Optional;* the installer does not test these arguments.
