@@ -6,7 +6,7 @@ JENKINS_CONF=${USER_HOME}/Library/Preferences/org.jenkins-ci.slave.jnlp.conf
 # defaults
 JENKINS_WRKSPC=${USER_HOME}/JENKINS_SLAVE_HOME
 JENKINS_SLAVE=`hostname -s | tr '[:upper:]' '[:lower:]'`
-JENKINS_MASTER=http://jenkins
+JENKINS_MASTER=''
 HTTP_PORT=''
 JENKINS_USER=''
 JENKINS_TOKEN=''
@@ -40,7 +40,7 @@ fi
 
 # 'launchctl list org.jenkins-ci.slave.jnlp' exits true if this was run by a
 # LaunchAgent, and exits false if this was run by a LaunchDaemon
-if launchctl list org.jenkins-ci.slave.jnlp > /dev/null ; then
+if launchctl list org.jenkins-ci.slave.jnlp 2>&1 >/dev/null ; then
 	AGENT="--agent"
 fi
 
