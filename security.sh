@@ -7,7 +7,7 @@
 # get-password --account=ACCOUNT --service=SERVICE
 # add-java-certificate --alias=ALIAS --certificate=/path/to/certificate
 
-OSX_KEYCHAIN="login.keychain"
+OSX_KEYCHAIN="login.keychain-db"
 OSX_KEYCHAIN_PASS=""
 OSX_KEYCHAIN_LOCK=~/Library/Keychains/.${OSX_KEYCHAIN}.lock
 ACCOUNT=""
